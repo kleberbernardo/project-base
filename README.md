@@ -1,34 +1,121 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## 🚀 Project Base
 
-## Getting Started
+Este projeto foi cuidadosamente criado para servir como uma base sólida para desenvolvedores que buscam começar seus projetos futuros com uma vantagem. Ele vem pré-configurado com várias ferramentas essenciais, eliminando a necessidade de passar horas na fase inicial de configuração. O objetivo é proporcionar uma transição suave para o desenvolvimento real, assegurando que as melhores práticas e convenções sejam seguidas desde o início.
 
-First, run the development server:
+## 🛠️ Ferramentas
+
+- **Next.js**: Um framework React que oferece recursos como renderização do lado servidor e geração estática para aplicações web modernas.
+
+- **ESLint**: Ferramenta de linting que identifica e reporta padrões encontrados no código ECMAScript/JavaScript. Esta configuração segue o padrão do Airbnb, o que ajuda a manter um código mais consistente e a evitar certos tipos de bugs.
+
+- **Prettier**: Um formatador de código opinativo que garante que todo o código tenha um estilo consistente.
+
+- **Husky**: Utilizado para garantir a integridade do código ao automatizar tarefas usando ganchos (hooks) do git, como o pre-commit, para garantir que cada commit atenda a padrões específicos antes de ser efetivado.
+
+## 📝 Instalando do zero ou em um projeto já existente
+
+Se você desejar instalar em um projeto já existente, deixarei os passos abaixo para instalação e configuração, é bem simples.
+
+Obs: Essa configuração é para um projeto em NextJs.
+
+**Digite o comando abaixo para instalar todas as dependências necessárias:**
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
+  npm i --save-dev @typescript-eslint/eslint-plugin @typescript-eslint/parser eslint eslint-config-airbnb eslint-config-airbnb-typescript eslint-config-prettier eslint-import-resolver-typescript eslint-plugin-import eslint-plugin-import-helpers eslint-plugin-prettier prettier
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+**Renomeie o arquivo .eslint.json para .eslint.js e adicione o conteúdo abaixo:**
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Basicamente, você está apontando as bibliotecas do airbnb, apontando configurações do tsconfig, ignorando analise do Eslint nesse js, importando e configurando a biblioteca de ordenação de imports e adicionando regras para o Eslint ignorar algumas questões do NextJs.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+Você pode adicionar mais regras sempre que desejar nas **rules**.
 
-## Learn More
+```javascript
+module.exports = {
+  extends: ['next/core-web-vitals', 'airbnb', 'airbnb-typescript'],
+  parserOptions: {
+    project: 'tsconfig.json',
+    tsconfigRootDir: __dirname,
+    sourceType: 'module',
+  },
+  ignorePatterns: ['.eslintrc.js'],
+  plugins: ['eslint-plugin-import-helpers'],
+  rules: {
+    'react/react-in-jsx-scope': 'off',
+    'react/jsx-closing-bracket-location': 'off',
+    'react/jsx-one-expression-per-line': 'off',
+    'import-helpers/order-imports': [
+      'warn',
+      {
+        newlinesBetween: 'always',
+        groups: [
+          ['/^react/', '/^redux/'],
+          'module',
+          '/^@shared/',
+          ['parent', 'sibling', 'index'],
+        ],
+        alphabetize: { order: 'asc', ignoreCase: true },
+      },
+    ],
+  },
+};
+```
 
-To learn more about Next.js, take a look at the following resources:
+**Crie o arquivo tsconfig.eslint.json e adicione o conteúdo abaixo:**
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Aqui estamos apontando o arquivo tsconfig ao Eslint e falando que tipo de extensão e onde ele deve procurar arquivos para corrigir.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+```json
+{
+  "extends": "./tsconfig.json",
+  "include": ["**/*.tsx"]
+}
+```
 
-## Deploy on Vercel
+**Crie o arquivo .prettierrc e adicione o conteúdo abaixo:**
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Aqui estamos informando os padrões de organização de código de utilizaremos, fique livre para escolher os seus.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+```json
+{
+  "printWidth": 80,
+  "tabWidth": 2,
+  "useTabs": false,
+  "semi": true,
+  "singleQuote": true,
+  "arrowParens": "always",
+  "quoteProps": "as-needed",
+  "trailingComma": "all",
+  "bracketSpacing": true,
+  "bracketSameLine": true,
+  "rangeStart": 0,
+  "insertPragma": false,
+  "proseWrap": "preserve"
+}
+```
+
+**Adicione as linhas abaixo no arquivo setting.json do seu VSCode:**
+
+Isso irá fazer o prettier funcionar junto com o Eslint ao salvar o código.
+
+```json
+{
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.codeActionsOnSave": ["source.formatDocument", "source.fixAll.eslint"]
+}
+```
+
+**Valide se está tudo bem configurado:**
+
+Abra e feche seu VSCode para que as configurações se apliquem corretamente.
+
+Execute o comando abaixo na raiz do seu projeto para o Eslint varrer seu projeto em busca de inconsistências.
+
+```bash
+ npx eslint . --ext .tsx
+```
+
+No caso, como uso tudo em .tsx, me preocupo apenas com esses arquivos.
+
+Se tiver inconsistências, você terá um retorno nesse comando informando os erros e arquivos, corrija para ficar tudo redondo.

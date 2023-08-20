@@ -14,7 +14,7 @@ module.exports = {
     'import-helpers/order-imports': [
       'warn',
       {
-        newlinesBetween: 'always', // new line between groups
+        newlinesBetween: 'always',
         groups: [
           ['/^react/', '/^redux/'],
           'module',
