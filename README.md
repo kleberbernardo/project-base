@@ -18,6 +18,11 @@ Se você desejar instalar em um projeto já existente, deixarei os passos abaixo
 
 Obs: Essa configuração é para um projeto em NextJs.
 
+**Instale os plugins abaixo no VSCode:**
+
+- Prettier - Code formatter
+- ESLint
+
 **Digite o comando abaixo para instalar todas as dependências necessárias:**
 
 ```bash
