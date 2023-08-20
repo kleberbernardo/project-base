@@ -122,7 +122,7 @@ Se tiver inconsistências, você terá um retorno nesse comando informando os er
 
 **Inicialize o Husky:**
 
-O Husky é o cara que verifica algo está errado antes de ser comitado, seja verificando se tem erro de Eslint, tests e etc.
+O Husky é o cara que verifica se algo está errado antes de ser comitado, seja verificando se tem erro de Eslint, tests e etc.
 
 Execute o comando abaixo para inicializar o projeto husky:
 
@@ -136,11 +136,15 @@ Depois o comando abaixo para adicionar no package.json para ativar os gatilhos d
  npm pkg set scripts.prepare="husky install"
 ```
 
-Agora vamos adicionar o gatilho do Eslint como pre-commit
+Agora vamos adicionar o gatilho do Eslint como pre-commit, poderia ser mais comandos como pré tests, checagens e etc.
 
 ```bash
  npx husky add .husky/pre-commit "npm run lint"
  git add .husky/pre-commit
 ```
 
-Husky e lint-staged
+## 📝 Licença
+
+Esse projeto está sob licença. Veja o arquivo [LICENÇA](LICENSE.md) para mais detalhes.
+
+[⬆ Voltar ao topo](#chathub)<br>
