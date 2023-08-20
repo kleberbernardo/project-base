@@ -94,28 +94,6 @@ Aqui estamos apontando o arquivo tsconfig ao Eslint e falando que tipo de extens
 }
 ```
 
-**Crie o arquivo .prettierrc e adicione o conteúdo abaixo:**
-
-Aqui estamos informando os padrões de organização de código de utilizaremos, fique livre para escolher os seus.
-
-```json
-{
-  "printWidth": 80,
-  "tabWidth": 2,
-  "useTabs": false,
-  "semi": true,
-  "singleQuote": true,
-  "arrowParens": "always",
-  "quoteProps": "as-needed",
-  "trailingComma": "all",
-  "bracketSpacing": true,
-  "bracketSameLine": true,
-  "rangeStart": 0,
-  "insertPragma": false,
-  "proseWrap": "preserve"
-}
-```
-
 **Adicione as linhas abaixo no arquivo setting.json do seu VSCode:**
 
 Isso irá fazer o prettier funcionar junto com o Eslint ao salvar o código.
