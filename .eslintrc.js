@@ -1,5 +1,5 @@
 module.exports = {
-  extends: ['next/core-web-vitals', 'airbnb', 'airbnb-typescript', 'prettier'],
+  extends: ['next/core-web-vitals', 'airbnb', 'airbnb-typescript', 'plugin:@typescript-eslint/recommended', 'plugin:prettier/recommended'],
   parserOptions: {
     project: 'tsconfig.json',
     tsconfigRootDir: __dirname,
