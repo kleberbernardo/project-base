@@ -32,7 +32,7 @@ Obs: Essa configuração é para um projeto em NextJs.
 
 **Renomeie o arquivo .eslint.json para .eslint.js e adicione o conteúdo abaixo:**
 
-Basicamente, você está apontando as bibliotecas do airbnb, apontando configurações do tsconfig, ignorando analise do Eslint nesse js, importando e configurando a biblioteca de ordenação de imports e adicionando regras para o Eslint ignorar algumas questões do NextJs.
+Basicamente, você está apontando as bibliotecas do airbnb, apontando configurações do tsconfig, ignorando analise do Eslint nesse js, importando e configurando a biblioteca de ordenação de imports, adicionando regras do prettier, regras do tailwindcss e adicionando regras para o Eslint ignorar algumas questões do NextJs.
 
 Você pode adicionar mais regras sempre que desejar nas **rules**.
 
