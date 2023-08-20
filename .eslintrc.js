@@ -1,5 +1,13 @@
 module.exports = {
-  extends: ['next/core-web-vitals', 'airbnb', 'airbnb-typescript', 'plugin:@typescript-eslint/recommended', 'plugin:prettier/recommended'],
+  root: true,
+  extends: [
+    'next/core-web-vitals', 
+    'airbnb', 
+    'airbnb-typescript', 
+    'plugin:@typescript-eslint/recommended', 
+    'plugin:prettier/recommended', 
+    'plugin:tailwindcss/recommended'
+  ],
   parserOptions: {
     project: 'tsconfig.json',
     tsconfigRootDir: __dirname,
