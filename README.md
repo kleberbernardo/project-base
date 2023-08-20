@@ -27,7 +27,7 @@ Obs: Essa configuração é para um projeto em NextJs.
 **Digite o comando abaixo para instalar todas as dependências necessárias:**
 
 ```bash
-  npm i --save-dev husky @typescript-eslint/eslint-plugin @typescript-eslint/parser eslint eslint-config-airbnb eslint-config-airbnb-typescript eslint-config-prettier eslint-import-resolver-typescript eslint-plugin-import eslint-plugin-import-helpers eslint-plugin-prettier prettier eslint-plugin-tailwindcss
+  npm i --save-dev husky @typescript-eslint/eslint-plugin @typescript-eslint/parser eslint eslint-config-airbnb eslint-config-airbnb-typescript eslint-config-prettier eslint-import-resolver-typescript eslint-plugin-import eslint-plugin-import-helpers eslint-plugin-prettier prettier
 ```
 
 **Renomeie o arquivo .eslint.json para .eslint.js e adicione o conteúdo abaixo:**
@@ -44,8 +44,7 @@ module.exports = {
     'airbnb', 
     'airbnb-typescript', 
     'plugin:@typescript-eslint/recommended', 
-    'plugin:prettier/recommended', 
-    'plugin:tailwindcss/recommended'
+    'prettier'
   ],
   parserOptions: {
     project: 'tsconfig.json',
