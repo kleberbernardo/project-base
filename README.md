@@ -21,7 +21,7 @@ Obs: Essa configuração é para um projeto em NextJs.
 **Digite o comando abaixo para instalar todas as dependências necessárias:**
 
 ```bash
-  npm i --save-dev @typescript-eslint/eslint-plugin @typescript-eslint/parser eslint eslint-config-airbnb eslint-config-airbnb-typescript eslint-config-prettier eslint-import-resolver-typescript eslint-plugin-import eslint-plugin-import-helpers eslint-plugin-prettier prettier
+  npm i --save-dev husky @typescript-eslint/eslint-plugin @typescript-eslint/parser eslint eslint-config-airbnb eslint-config-airbnb-typescript eslint-config-prettier eslint-import-resolver-typescript eslint-plugin-import eslint-plugin-import-helpers eslint-plugin-prettier prettier
 ```
 
 **Renomeie o arquivo .eslint.json para .eslint.js e adicione o conteúdo abaixo:**
@@ -119,3 +119,28 @@ Execute o comando abaixo na raiz do seu projeto para o Eslint varrer seu projeto
 No caso, como uso tudo em .tsx, me preocupo apenas com esses arquivos.
 
 Se tiver inconsistências, você terá um retorno nesse comando informando os erros e arquivos, corrija para ficar tudo redondo.
+
+**Inicialize o Husky:**
+
+O Husky é o cara que verifica algo está errado antes de ser comitado, seja verificando se tem erro de Eslint, tests e etc.
+
+Execute o comando abaixo para inicializar o projeto husky:
+
+```bash
+ npx husky install
+```
+
+Depois o comando abaixo para adicionar no package.json para ativar os gatilhos do Git
+
+```bash
+ npm pkg set scripts.prepare="husky install"
+```
+
+Agora vamos adicionar o gatilho do Eslint como pre-commit
+
+```bash
+ npx husky add .husky/pre-commit "npm run lint"
+ git add .husky/pre-commit
+```
+
+Husky e lint-staged
